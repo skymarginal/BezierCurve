@@ -31,6 +31,9 @@ public class WaterRippleView extends View {
     private List<Integer> widthList = new ArrayList<>();
     private List<Integer> heightList = new ArrayList<>();
 
+    private int waveWidth;
+    private int waveHeight;
+
     private ValueAnimator animator;
     private int dx;
 
@@ -43,11 +46,11 @@ public class WaterRippleView extends View {
     }
 
     private void init() {
-        paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(3);
         paint.setAntiAlias(true);
         paint.setDither(true);
-        paint.setColor(Color.GRAY);
+        paint.setColor(Color.GREEN);
+        paint.setStyle(Paint.Style.FILL);
     }
 
     @Override
@@ -56,12 +59,15 @@ public class WaterRippleView extends View {
         width = getWidth();
         height = getHeight();
 
-        while (minWidth < width) {
-            minWidth += 50;
-            widthList.add(minWidth);
-            minHeight += 10;
-            heightList.add(minHeight);
-        }
+        waveWidth = width / 4;
+        waveHeight = waveWidth / 6;
+
+//        while (minWidth < width) {
+//            minWidth += 50;
+//            widthList.add(minWidth);
+//            minHeight += 10;
+//            heightList.add(minHeight);
+//        }
     }
 
     @Override
@@ -74,6 +80,10 @@ public class WaterRippleView extends View {
             int width = widthList.get(i);
             path.rQuadTo(width / 2, (i % 2 == 0 ? dx : -dx), width, 0);
         }
+
+        path.lineTo(width, height);
+        path.lineTo(0, height);
+        path.close();
 
         canvas.drawPath(path, paint);
     }

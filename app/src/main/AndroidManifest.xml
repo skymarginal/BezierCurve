@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".activity.DragLineActivity"/>
         <activity android:name=".activity.WaterRippleActivity"/>
+        <activity android:name=".activity.AudioWaveActivity"/>
     </application>
 
 </manifest>

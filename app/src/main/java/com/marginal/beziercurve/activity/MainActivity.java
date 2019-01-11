@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.bezier_drag, R.id.bezier_water_ripple})
+    @OnClick({R.id.bezier_drag, R.id.bezier_water_ripple,R.id.bezier_audio_wave})
     protected void onClick(View v) {
         switch (v.getId()) {
             case R.id.bezier_drag:
@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.bezier_water_ripple:
                 WaterRippleActivity.startWaterRippleActivity(this);
+                break;
+            case R.id.bezier_audio_wave:
+                AudioWaveActivity.startAudioWaveActivity(this);
                 break;
             default:
                 break;

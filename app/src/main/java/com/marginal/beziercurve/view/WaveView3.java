@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
@@ -86,6 +87,9 @@ public class WaveView3 extends View {
         //核心的代码就是这里
         for (int i = -3; i < 2; i++) {
             int startX = i * itemWidth;
+            Log.i("==TAG==","控制点的X: " + (startX + itemWidth / 2 + offset));
+            Log.i("==TAG==","控制点的Y: " + getWaveHeigh(i));
+            Log.i("==TAG==","结束点的Y: " + startX + itemWidth + offset);
             mPath.quadTo(
                     startX + itemWidth / 2 + offset,//控制点的X,（起始点X + itemWidth/2 + offset)
                     getWaveHeigh(i),//控制点的Y
