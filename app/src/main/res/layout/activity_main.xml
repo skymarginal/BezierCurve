@@ -20,8 +20,9 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:text="波浪线"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintCircle="@id/bezier_drag"
+        app:layout_constraintCircleAngle="140"
+        app:layout_constraintCircleRadius="80dp"
         app:layout_constraintTop_toBottomOf="@id/bezier_drag"
         app:layout_constraintWidth_percent="0.5" />
 
@@ -30,9 +31,116 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:text="音频波浪"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bezier_water_ripple"
-        app:layout_constraintWidth_percent="0.5" />
+        app:layout_constraintWidth_percent="0.3" />
+
+    <Button
+        android:id="@+id/bezier_ratio_a"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="宽高比1:1"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bezier_audio_wave" />
+
+    <Button
+        android:id="@+id/bezier_ratio_b"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="宽高比3:1"
+        app:layout_constraintDimensionRatio="H,1:3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bezier_ratio_a" />
+
+    <TextView
+        android:id="@+id/chain_spread_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="spread 1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/chain_spread_2"
+        app:layout_constraintTop_toBottomOf="@+id/bezier_ratio_b" />
+
+    <TextView
+        android:id="@+id/chain_spread_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="spread 2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/chain_spread_1"
+        app:layout_constraintLeft_toRightOf="@+id/chain_spread_1"
+        app:layout_constraintRight_toLeftOf="@+id/chain_spread_3" />
+
+    <TextView
+        android:id="@+id/chain_spread_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="spread 3"
+        app:layout_constraintBaseline_toBaselineOf="@+id/chain_spread_2"
+        app:layout_constraintLeft_toRightOf="@+id/chain_spread_2"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/chain_spread_inside_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="spread_inside 1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/chain_spread_2"
+        app:layout_constraintTop_toBottomOf="@+id/chain_spread_1" />
+
+    <TextView
+        android:id="@+id/chain_spread_inside_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="spread_inside 2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/chain_spread_inside_1"
+        app:layout_constraintLeft_toRightOf="@+id/chain_spread_inside_1"
+        app:layout_constraintRight_toLeftOf="@+id/chain_spread_inside_3" />
+
+    <TextView
+        android:id="@+id/chain_spread_inside_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="spread_inside 3"
+        app:layout_constraintBaseline_toBaselineOf="@+id/chain_spread_inside_2"
+        app:layout_constraintLeft_toRightOf="@+id/chain_spread_inside_2"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/chain_packed_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="packed 1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/chain_packed_2"
+        app:layout_constraintTop_toBottomOf="@+id/chain_spread_inside_1" />
+
+    <TextView
+        android:id="@+id/chain_packed_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="packed 2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/chain_packed_1"
+        app:layout_constraintLeft_toRightOf="@+id/chain_packed_1"
+        app:layout_constraintRight_toLeftOf="@+id/chain_packed_3" />
+
+    <TextView
+        android:id="@+id/chain_packed_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="packed 3"
+        app:layout_constraintBaseline_toBaselineOf="@+id/chain_packed_2"
+        app:layout_constraintLeft_toRightOf="@+id/chain_packed_2"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
